@@ -7,13 +7,17 @@ import { HttpClientModule } from '@angular/common/http';
 import { HomeComponent } from './home/home.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { MatchesComponent } from './matches/matches.component';
+import { TableComponent } from './table/table.component';
+import { TeamsComponent } from './teams/teams.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     NavbarComponent,
-    MatchesComponent
+    MatchesComponent,
+    TableComponent,
+    TeamsComponent
   ],
   imports: [
     BrowserModule,
