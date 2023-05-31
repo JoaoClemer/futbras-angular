@@ -21,7 +21,6 @@ export class TableComponent implements OnInit{
     this.api.getTable()
     .subscribe((data:Table) =>{
       this.table = data.response[0].league.standings[0];
-      console.log(this.table)
     },
     error => console.log(error));
 

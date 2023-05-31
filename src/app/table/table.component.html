@@ -5,7 +5,7 @@
         <th scope="col">Posição</th>
         <th scope="col">Nome do Time</th>
         <th scope="col">Pontuação</th>
-        <th scope="col">Handle</th>
+        <th scope="col">V | E | D</th>
       </tr>
     </thead>
     <tbody>
@@ -13,7 +13,7 @@
         <th scope="row">{{dado.rank}}</th>
         <td><img class="teamLogo" src="{{dado.team.logo}}" alt="">{{dado.team.name}}</td>
         <td>{{dado.points}}</td>
-        <td>@mdo</td>
+        <td>{{dado.all.win}} | {{dado.all.draw}} | {{dado.all.lose}}</td>
       </tr>
     </tbody>
   </table>

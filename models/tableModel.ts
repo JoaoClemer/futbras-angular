@@ -3,5 +3,6 @@ export class Table {
   public rank!: number;
   public team: any;
   public points!:number;
+  public all:any
 
 }
