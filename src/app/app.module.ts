@@ -9,6 +9,7 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { MatchesComponent } from './matches/matches.component';
 import { TableComponent } from './table/table.component';
 import { TeamsComponent } from './teams/teams.component';
+import { SwiperModule } from 'swiper/angular';
 
 @NgModule({
   declarations: [
@@ -23,6 +24,7 @@ import { TeamsComponent } from './teams/teams.component';
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
+    SwiperModule
 
   ],
   providers: [],

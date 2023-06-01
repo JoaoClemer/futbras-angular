@@ -1,29 +1,20 @@
-<div class="container py-2 border border-light">
-  <div id="carouselExample" class="carousel slide">
-    <div class="carousel-inner">
-      <div class="carousel-item" *ngFor="let part of matches">
-        <div class="card">
-          <div class="img-wrapper">
-            <img src="{{part.teams.home.logo}}" alt="...">
-            x
-            <img src="{{part.teams.away.logo}}" alt="...">
-          </div>
-          <div class="card-body">
-            <h5 class="card-title">{{part.teams.home.name}} x {{part.teams.away.name}}</h5>
-            <p class="card-text">
-            </p>
-            <a href="#" class="btn btn-primary">Go somewhere</a>
-          </div>
-        </div>
+<swiper [slidesPerView]="3" [spaceBetween]="50"
+  [navigation]="true">
+  <ng-template swiperSlide *ngFor="let part of matches">
+    <div class="card">
+      <div class="img-wrapper">
+        <img src="{{part.teams.home.logo}}" alt="...">
+        <h5 class="versus text-center"> X </h5>
+        <img src="{{part.teams.away.logo}}" alt="...">
+      </div>
+      <div class="card-body">
+        <h5 class="card-title text-center">{{part.teams.home.name}} x {{part.teams.away.name}}</h5>
+        <p class="card-text text-center"> {{part.fixture.venue.name}}</p>
+        <p class="card-text text-center"> {{convertDate(part.fixture.date)}}</p>
       </div>
     </div>
-    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
-      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-      <span class="visually-hidden">Previous</span>
-    </button>
-    <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
-      <span class="carousel-control-next-icon" aria-hidden="true"></span>
-      <span class="visually-hidden">Next</span>
-    </button>
-  </div>
-</div>
+  </ng-template>
+</swiper>
+
+
+

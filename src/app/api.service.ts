@@ -23,7 +23,7 @@ export class ApiService {
   }
 
   getNextRounds() :Observable<any>{
-    return this.http.get(`${this.apiUrl}/fixtures?league=71&season=2023&next=3`,{headers:this.headers});
+    return this.http.get(`${this.apiUrl}/fixtures?league=71&season=2023&next=10`,{headers:this.headers});
   }
 
 
