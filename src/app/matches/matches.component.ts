@@ -26,7 +26,6 @@ export class MatchesComponent implements OnInit {
     this.api.getNextRounds()
     .subscribe((data:Matches)=>{
       this.matches = data.response;
-      console.log(this.matches);
     },
     error=>console.log(error));
 

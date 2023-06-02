@@ -2,6 +2,15 @@
 @import 'swiper/css/navigation';
 @import 'swiper/css/pagination';
 
+.swiper-button-prev,
+.swiper-button-next{
+  color: white;
+  background-color: black;
+  width: 50px;
+  height: 50px;
+  border-radius: 100%;
+  opacity: 50%;
+}
 .img-wrapper{
   max-width: 100%;
   display: flex;

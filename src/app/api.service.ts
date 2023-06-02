@@ -26,6 +26,10 @@ export class ApiService {
     return this.http.get(`${this.apiUrl}/fixtures?league=71&season=2023&next=10`,{headers:this.headers});
   }
 
+  getTeams() :Observable<any>{
+    return this.http.get(`${this.apiUrl}/teams?league=71&season=2023`,{headers:this.headers});
+  }
+
 
 }
 
