@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import{HttpClient, HttpHeaders} from '@angular/common/http'
 
 
@@ -8,6 +8,7 @@ import{HttpClient, HttpHeaders} from '@angular/common/http'
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit{
+
 
 constructor(private http: HttpClient){
 

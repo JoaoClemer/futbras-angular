@@ -1,4 +1,4 @@
-.card {
+.teamcard .card {
   flex-direction: row;
   width: 250px;
   height: 110px;
@@ -8,20 +8,20 @@
   box-shadow: 0 7px 7px rgba(0, 0, 0, 0.18);
 }
 
-.card img {
+.teamcard .card img {
   max-width: 25%;
   margin: auto;
   padding: 0.5em;
   border-radius: 0.7em;
 }
 
-.card-body {
+.teamcard .card-body-team {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
 }
 
-.cta-section {
+.teamcard .cta-section {
   max-width: 90%;
   display: flex;
   flex-direction: column;
@@ -29,15 +29,39 @@
   justify-content: space-between;
 }
 
-.cta-section .btn {
+.teamcard .cta-section .btn {
   padding: 0.2em 0.5em;
   font-size: 1em;
   color: #000000;
 }
 
-.card-text {
+.teamcard .card-text {
   letter-spacing: 0.1em;
 }
-.col{
+.teamcard .col{
   margin-bottom: 20px;
+}
+
+
+
+.img-wrapper {
+  max-width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.versus {
+  margin: 10%;
+}
+
+img {
+  max-width: 100%;
+  max-height: 100%;
+  width: 20%;
+  margin-top: 5%;
+}
+
+.card {
+  margin: 0 .5em;
 }

@@ -18,7 +18,8 @@ import { SwiperModule } from 'swiper/angular';
     NavbarComponent,
     MatchesComponent,
     TableComponent,
-    TeamsComponent
+    TeamsComponent,
+
   ],
   imports: [
     BrowserModule,

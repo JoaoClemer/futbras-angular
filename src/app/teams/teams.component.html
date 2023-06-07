@@ -1,4 +1,4 @@
-<div class="container text-center">
+<div class="container text-center teamcard">
   <div class="row row-cols-5" >
     <div class="col" *ngFor="let dado of team">
       <div class="card dark">
@@ -8,9 +8,60 @@
             <h5 class="card-title fw-bold">{{dado.team.name}}</h5>
           </div>
           <div class="cta-section">
-            <a href="#" class="btn btn-light">Ver detalhes <i class="bi bi-info-circle-fill"></i> </a>
+            <button type="button" data-bs-toggle="modal" data-bs-target="#exampleModal">
+              <a href="#" class="btn btn-light" (click)="infoTeam(dado.team.id)">Ver detalhes <i class="bi bi-info-circle-fill"></i></a>
+            </button>
           </div>
         </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel"></h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" (click)="closeModal()"></button>
+      </div>
+
+      <div class="modal-body">
+        <div class="lastResults">
+          <h5 class="text-center">Ultimos Resultados</h5>
+          <div class="card" *ngIf="let last in lastMatches | async">
+            <div class="img-wrapper">
+              <img src="" alt="...">
+              <h5 class="versus text-center"> X </h5>
+              <img src="" alt="...">
+            </div>
+            <div class="card-body">
+              <h5 class="card-title text-center">TimeCasa 1 x 0 TimeFora</h5>
+              <p class="card-text text-center"> <i class="bi bi-geo-alt-fill"></i> Local</p>
+              <p class="card-text text-center"> <i class="bi bi-stopwatch-fill"></i> Data</p>
+            </div>
+          </div>
+        </div>
+        <div class="nextMatches py-5">
+          <h5 class="text-center">Proximas Partidas</h5>
+          <div class="card">
+            <div class="img-wrapper">
+              <img src="" alt="...">
+              <h5 class="versus text-center"> X </h5>
+              <img src="" alt="...">
+            </div>
+            <div class="card-body">
+              <h5 class="card-title text-center">TimeCasa 1 x 0 TimeFora</h5>
+              <p class="card-text text-center"> <i class="bi bi-geo-alt-fill"></i> Local</p>
+              <p class="card-text text-center"> <i class="bi bi-stopwatch-fill"></i> Data</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
       </div>
     </div>
   </div>

@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { ApiService } from '../api.service';
 import { Teams } from 'models/teamsModels';
+import { Matches } from 'models/matchesModel';
 
 @Component({
   selector: 'app-teams',
@@ -11,7 +12,28 @@ export class TeamsComponent implements OnInit {
   constructor(private api:ApiService){}
 
 team!:Teams[];
+lastMatches!:Matches[];
+nextMatches!:Matches[];
 
+infoTeam(id:number){
+  console.log('clicou')
+
+  this.api.getLastRoundsById(id)
+  .subscribe((data:Matches)=>{
+    this.lastMatches= data.response;
+  },
+  error => console.log(error));
+
+  this.api.getNextRoundsById(id)
+  .subscribe((data:Matches)=>{
+    this.nextMatches = data.response;
+  }, error => console.log(error));
+
+}
+
+closeModal(){
+
+}
 
 ngOnInit(): void {
 
