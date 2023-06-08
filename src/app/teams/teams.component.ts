@@ -11,12 +11,15 @@ import { Matches } from 'models/matchesModel';
 export class TeamsComponent implements OnInit {
   constructor(private api:ApiService){}
 
+infoTeamName!:string;
 team!:Teams[];
 lastMatches!:Matches[];
 nextMatches!:Matches[];
 
-infoTeam(id:number){
+infoTeam(id:number,name:string){
   console.log('clicou')
+
+  this.infoTeamName = name;
 
   this.api.getLastRoundsById(id)
   .subscribe((data:Matches)=>{
@@ -34,6 +37,12 @@ infoTeam(id:number){
 closeModal(){
 
 }
+
+convertDate(date:string){
+    const day = new Date(date).toLocaleString("pt-BR",{timeZone:'America/Sao_Paulo'});
+
+    return day;
+  }
 
 ngOnInit(): void {
 

@@ -44,24 +44,26 @@
 
 
 
-.img-wrapper {
+.modal-body .img-wrapper {
   max-width: 100%;
   display: flex;
   justify-content: center;
   align-items: flex-start;
 }
 
-.versus {
+.modal-body .versus {
   margin: 10%;
 }
 
-img {
+.modal-body img {
   max-width: 100%;
   max-height: 100%;
-  width: 20%;
+  width: 15%;
   margin-top: 5%;
 }
 
-.card {
+.modal-body .card {
   margin: 0 .5em;
+  display: inline-block;
+  width: 350px;
 }

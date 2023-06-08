@@ -8,8 +8,8 @@
             <h5 class="card-title fw-bold">{{dado.team.name}}</h5>
           </div>
           <div class="cta-section">
-            <button type="button" data-bs-toggle="modal" data-bs-target="#exampleModal">
-              <a href="#" class="btn btn-light" (click)="infoTeam(dado.team.id)">Ver detalhes <i class="bi bi-info-circle-fill"></i></a>
+            <button type="button" class="btn btn-light" data-bs-toggle="modal" data-bs-target="#exampleModal"(click)="infoTeam(dado.team.id, dado.team.name)">
+               Ver detalhes <i class="bi bi-info-circle-fill"></i>
             </button>
           </div>
         </div>
@@ -19,41 +19,41 @@
 </div>
 
 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
+  <div class="modal-dialog modal-xl modal-dialog-centered">
     <div class="modal-content">
       <div class="modal-header">
-        <h1 class="modal-title fs-5" id="exampleModalLabel"></h1>
+        <h1 class="modal-title fs-5" id="exampleModalLabel">{{infoTeamName}}</h1>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" (click)="closeModal()"></button>
       </div>
 
       <div class="modal-body">
         <div class="lastResults">
           <h5 class="text-center">Ultimos Resultados</h5>
-          <div class="card" *ngIf="let last in lastMatches | async">
+          <div class="card" *ngFor="let lPart of lastMatches">
             <div class="img-wrapper">
-              <img src="" alt="...">
+              <img src="{{lPart.teams.home.logo}}" alt="...">
               <h5 class="versus text-center"> X </h5>
-              <img src="" alt="...">
+              <img src="{{lPart.teams.away.logo}}" alt="...">
             </div>
             <div class="card-body">
-              <h5 class="card-title text-center">TimeCasa 1 x 0 TimeFora</h5>
-              <p class="card-text text-center"> <i class="bi bi-geo-alt-fill"></i> Local</p>
-              <p class="card-text text-center"> <i class="bi bi-stopwatch-fill"></i> Data</p>
+              <h6 class="card-title text-center">{{lPart.teams.home.name}} {{lPart.goals.home}} x {{lPart.goals.away}} {{lPart.teams.away.name}}</h6>
+              <p class="card-text text-center"> <i class="bi bi-geo-alt-fill"></i>{{lPart.fixture.venue.name}}</p>
+              <p class="card-text text-center"> <i class="bi bi-stopwatch-fill">{{convertDate(lPart.fixture.date)}}</i></p>
             </div>
           </div>
         </div>
         <div class="nextMatches py-5">
           <h5 class="text-center">Proximas Partidas</h5>
-          <div class="card">
+          <div class="card" *ngFor="let nPart of nextMatches">
             <div class="img-wrapper">
-              <img src="" alt="...">
+              <img src="{{nPart.teams.home.logo}}" alt="...">
               <h5 class="versus text-center"> X </h5>
-              <img src="" alt="...">
+              <img src="{{nPart.teams.away.logo}}" alt="...">
             </div>
             <div class="card-body">
-              <h5 class="card-title text-center">TimeCasa 1 x 0 TimeFora</h5>
-              <p class="card-text text-center"> <i class="bi bi-geo-alt-fill"></i> Local</p>
-              <p class="card-text text-center"> <i class="bi bi-stopwatch-fill"></i> Data</p>
+              <h6 class="card-title text-center">{{nPart.teams.home.name}} x {{nPart.teams.away.name}}</h6>
+              <p class="card-text text-center"> <i class="bi bi-geo-alt-fill"></i>{{nPart.fixture.venue.name}}</p>
+              <p class="card-text text-center"> <i class="bi bi-stopwatch-fill"></i>{{convertDate(nPart.fixture.date)}}</p>
             </div>
           </div>
         </div>

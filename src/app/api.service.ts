@@ -19,11 +19,11 @@ export class ApiService {
   });
 
   getTable(): Observable<any>{
-    return this.http.get(`${this.apiUrl}/standings?season=2023&league=71`,{});
+    return this.http.get(`${this.apiUrl}/standings?season=2023&league=71`,{headers:this.headers});
   }
 
   getNextRounds() :Observable<any>{
-    return this.http.get(`${this.apiUrl}/fixtures?league=71&season=2023&next=10`,{});
+    return this.http.get(`${this.apiUrl}/fixtures?league=71&season=2023&next=10`,{headers:this.headers});
   }
 
   getTeams() :Observable<any>{
@@ -35,7 +35,7 @@ export class ApiService {
   }
 
   getNextRoundsById(id:number) :Observable<any>{
-    return this.http.get(`${this.apiUrl}/fixtures?league=71&season=2023&next=3&team=${id}`,{});
+    return this.http.get(`${this.apiUrl}/fixtures?league=71&season=2023&next=3&team=${id}`,{headers:this.headers});
   }
 
 }

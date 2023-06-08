@@ -32,9 +32,9 @@ export class MatchesComponent implements OnInit {
   }
 
   convertDate(date:string){
-    const day = new Date((typeof date === "string" ? new Date(date):date).toLocaleString("pt-BR",{timeZone:'America/Sao_Paulo'}));
+    const day = new Date(date).toLocaleString("pt-BR",{timeZone:'America/Sao_Paulo'});
 
-    return day.toLocaleString("pt-BR");
+    return day;
   }
 
 
