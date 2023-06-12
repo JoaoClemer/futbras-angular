@@ -1,8 +1,9 @@
-import { Matches } from './../../../models/matchesModel';
+
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { ApiService } from '../api.service';
 // import Swiper core and required modules
 import SwiperCore, { Navigation, Pagination, Scrollbar, A11y } from 'swiper';
+import { Observable } from 'rxjs';
 
 // install Swiper modules
 SwiperCore.use([Navigation, Pagination, Scrollbar, A11y]);
@@ -19,15 +20,13 @@ export class MatchesComponent implements OnInit {
 
   constructor(private api:ApiService){}
 
-  matches!:Matches[];
+  //matches!:Matches[];
+
+  public matches$!: Observable<any>
 
   ngOnInit():void{
 
-    this.api.getNextRounds()
-    .subscribe((data:Matches)=>{
-      this.matches = data.response;
-    },
-    error=>console.log(error));
+    this.matches$ = this.api.getNextRounds();
 
   }
 

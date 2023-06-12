@@ -1,6 +1,6 @@
-<div class="container text-center teamcard">
+<div class="container text-center teamcard" *ngIf="team$ | async as teams">
   <div class="row row-cols-5" >
-    <div class="col" *ngFor="let dado of team">
+    <div class="col" *ngFor="let dado of teams.response">
       <div class="card dark">
         <img src="{{dado.team.logo}}" class="card-img-top" alt="...">
         <div class="card-body">
@@ -27,9 +27,9 @@
       </div>
 
       <div class="modal-body">
-        <div class="lastResults">
+        <div class="lastResults" *ngIf="lastMatches$ |async as lastMatches; else loading">
           <h5 class="text-center">Ultimos Resultados</h5>
-          <div class="card" *ngFor="let lPart of lastMatches">
+          <div class="card" *ngFor="let lPart of lastMatches.response">
             <div class="img-wrapper">
               <img src="{{lPart.teams.home.logo}}" alt="...">
               <h5 class="versus text-center"> X </h5>
@@ -42,9 +42,13 @@
             </div>
           </div>
         </div>
-        <div class="nextMatches py-5">
+        <ng-template #loading class="loadingTemplate">
+          <img src="\assets\footballAK.svg" alt="" class="spinner">
+          <h2>Carregando...</h2>
+        </ng-template>
+        <div class="nextMatches py-5" *ngIf="nextMatches$ | async as nextMatches">
           <h5 class="text-center">Proximas Partidas</h5>
-          <div class="card" *ngFor="let nPart of nextMatches">
+          <div class="card" *ngFor="let nPart of nextMatches.response">
             <div class="img-wrapper">
               <img src="{{nPart.teams.home.logo}}" alt="...">
               <h5 class="versus text-center"> X </h5>

@@ -1,6 +1,6 @@
 <swiper [slidesPerView]="3" [spaceBetween]="50"
-  [navigation]="true">
-  <ng-template swiperSlide *ngFor="let part of matches">
+  [navigation]="true" *ngIf="matches$ | async as matches">
+  <ng-template swiperSlide *ngFor="let part of matches.response">
     <div class="card">
       <div class="img-wrapper">
         <img src="{{part.teams.home.logo}}" alt="...">

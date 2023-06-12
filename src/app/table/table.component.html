@@ -8,8 +8,8 @@
         <th scope="col">V | E | D</th>
       </tr>
     </thead>
-    <tbody>
-      <tr *ngFor="let dado of table">
+    <tbody *ngIf="table$ | async as table">
+      <tr *ngFor="let dado of table.response[0].league.standings[0]">
         <th scope="row">{{dado.rank}}</th>
         <td><img class="teamLogo" src="{{dado.team.logo}}" alt="">{{dado.team.name}}</td>
         <td>{{dado.points}}</td>

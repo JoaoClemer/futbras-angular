@@ -1,7 +1,7 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Component, OnInit  } from '@angular/core';
 import { ApiService } from '../api.service';
-import { Teams } from 'models/teamsModels';
-import { Matches } from 'models/matchesModel';
+
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-teams',
@@ -12,25 +12,19 @@ export class TeamsComponent implements OnInit {
   constructor(private api:ApiService){}
 
 infoTeamName!:string;
-team!:Teams[];
-lastMatches!:Matches[];
-nextMatches!:Matches[];
+team$!:Observable<any>;
+lastMatches$!:Observable<any>;
+nextMatches$!:Observable<any>;
 
 infoTeam(id:number,name:string){
   console.log('clicou')
 
   this.infoTeamName = name;
 
-  this.api.getLastRoundsById(id)
-  .subscribe((data:Matches)=>{
-    this.lastMatches= data.response;
-  },
-  error => console.log(error));
+  this.lastMatches$ = this.api.getLastRoundsById(id);
 
-  this.api.getNextRoundsById(id)
-  .subscribe((data:Matches)=>{
-    this.nextMatches = data.response;
-  }, error => console.log(error));
+  this.nextMatches$ = this.api.getNextRoundsById(id);
+
 
 }
 
@@ -46,12 +40,8 @@ convertDate(date:string){
 
 ngOnInit(): void {
 
-  this.api.getTeams()
-  .subscribe((data:Teams)=>{
-    this.team = data.response;
-    console.log(this.team);
-  },
-  error=>console.log(error));
+  this.team$ = this.api.getTeams();
+
 
 }
 }
