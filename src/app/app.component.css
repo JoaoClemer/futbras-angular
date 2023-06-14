@@ -5,5 +5,8 @@ h1 {
   padding-top: 20px;
 }
 
-
+body{
+min-height: 100vh;
+min-width: 100vh;
+}
 

@@ -31,7 +31,7 @@ export class ApiService {
   }
 
   getLastRoundsById(id:number): Observable<any>{
-    return this.http.get(`${this.apiUrl}/fixtures?league=71&season=2023&last=3&team=${id}`, {headers:this.headers})
+    return this.http.get(`${this.apiUrl}/fixtures?league=71&season=2023&last=3&team=${id}`, {headers: this.headers})
   }
 
   getNextRoundsById(id:number) :Observable<any>{

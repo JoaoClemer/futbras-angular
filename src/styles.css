@@ -1,1 +1,32 @@
 /* You can add global styles to this file, and also import other style files */
+.loadingText {
+  margin-left: 450px;
+}
+
+.spinner {
+  margin-left: 450px;
+  width: 75px;
+  height: 75px;
+  -webkit-animation: spin 1s linear infinite;
+  -moz-animation: spin 1s linear infinite;
+  animation: spin 1s linear infinite;
+
+}
+
+@-webkit-keyframes spin {
+  100% {
+    -webkit-transform: rotate(360deg);
+  }
+}
+
+@-moz-keyframes spin {
+  100% {
+    -webkit-transform: rotate(360deg);
+  }
+}
+
+@keyframes spin {
+  100% {
+    -webkit-transform: rotate(360deg);
+  }
+}
