@@ -14,7 +14,7 @@ export class ApiService {
   currentDate = "2023-05-30";
 
    headers = new HttpHeaders({
-    'X-RapidAPI-Key': '54f6e9e57fmsh9e52205ab197fccp1961ffjsn5cf747416543',
+    'X-RapidAPI-Key': '',
     'X-RapidAPI-Host': 'api-football-v1.p.rapidapi.com'
   });
 

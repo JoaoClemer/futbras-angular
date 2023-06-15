@@ -47,7 +47,7 @@
           <h2 class="loadingText">Carregando...</h2>
         </ng-template>
         <div class="nextMatches py-5" *ngIf="nextMatches$ | async as nextMatches">
-          <h5 class="text-center">Proximas Partidas</h5>
+          <h5 class="text-center">Próximas Partidas</h5>
           <div class="card" *ngFor="let nPart of nextMatches.response">
             <div class="img-wrapper">
               <img src="{{nPart.teams.home.logo}}" alt="...">
